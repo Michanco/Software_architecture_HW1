@@ -1,0 +1,43 @@
+@startuml
+interface homeWork1.inMemoryModel.IModelChangedObserver {
++ void ApplyUpdateModel()
+}
+class homeWork1.Main {
++ {static} void main(String[])
+}
+class homeWork1.ModelElements.PoligonalModel {
+}
+class homeWork1.ModelElements.Poligon {
+}
+class homeWork1.ModelElements.Flash {
+}
+interface homeWork1.inMemoryModel.IModelChanger {
+~ void NotifyChange()
+}
+class homeWork1.ModelElements.Camera {
++ void Rotate()
+}
+class homeWork1.ModelElements.Scene {
++ int id
++ PoligonalModel Models
++ Flash Flashes
++ Camera Cameras
++ void myPM(PoligonalModel)
++ void myFlash(Flash)
++ void myCamera(Camera)
+}
+class homeWork1.inMemoryModel.ModelStore {
++ Flash Flashes
++ PoligonalModel Models
++ Camera Cameras
++ Scene Scenes
+- void changeObserve(IModelChangedObserver)
++ void NotifyChange()
++ Scene GetScene(int)
+}
+class homeWork1.ModelElements.Texture {
+}
+
+
+homeWork1.inMemoryModel.IModelChanger <|.. homeWork1.inMemoryModel.ModelStore
+@enduml
